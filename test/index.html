@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener('readystatechange', function() {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open('GET', 'http://localhost:3000/api/todos/1');
+      xhr.setRequestHeader('content-type', 'application/json');
+      xhr.setRequestHeader('cache-control', 'no-cache');
+      xhr.setRequestHeader(
+        'postman-token',
+        '2ab3187e-d222-95e1-68d5-4b1d1dd2e506',
+      );
+
+      xhr.send(data);
+    </script>
+  </body>
+</html>
